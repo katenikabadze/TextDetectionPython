@@ -7,31 +7,21 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 
 
 
-img_source = cv2.imread('images/metro.jpg')
+img_source = cv2.imread('images/coffee.jpg')
 
 
 def get_grayscale(image):
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 
-def thresholding(image):
-    return cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-
-
-def opening(image):
-    kernel = np.ones((5, 5), np.uint8)
-    return cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
-
 
 
 gray = get_grayscale(img_source)
-thresh = thresholding(gray)
 #opening = opening(gray)
 #canny = canny(gray)
-opened_img = opening(gray)
 
 
-for img in [img_source, gray, thresh, opened_img]:
+for img in [img_source, gray]:
     d = pytesseract.image_to_data(img, output_type=Output.DICT)
     n_boxes = len(d['text'])
 
