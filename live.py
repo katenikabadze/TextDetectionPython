@@ -1,3 +1,5 @@
+#amasac cotaxani ar VIMCHNEVT!!
+
 import cv2
 import pytesseract
 from pytesseract import Output

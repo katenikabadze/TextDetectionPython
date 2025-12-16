@@ -1,3 +1,5 @@
+#amas cotaxani ar vimchnevt co?
+
 import cv2
 import pytesseract
 import numpy as np
